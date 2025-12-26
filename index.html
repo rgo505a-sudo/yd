@@ -1,0 +1,295 @@
+<! DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Sender Pro - منصة إدارة واتساب متقدمة</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        : root {
+            --primary:  #25D366;
+            --secondary: #075E54;
+            --dark: #111B21;
+        }
+        . whatsapp-gradient {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+        .rtl-text { direction: rtl; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 whatsapp-gradient rounded-lg flex items-center justify-center">
+                    <i class="fas fa-paper-plane text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">WhatsApp Sender Pro</h1>
+            </div>
+            <div class="flex gap-4">
+                <a href="#features" class="px-4 py-2 text-gray-700 hover:text-green-600 font-semibold">المميزات</a>
+                <a href="#pricing" class="px-4 py-2 text-gray-700 hover:text-green-600 font-semibold">الباقات</a>
+                <a href="#contact" class="px-4 py-2 text-gray-700 hover:text-green-600 font-semibold">تواصل معنا</a>
+                <button onclick="showLoginModal()" class="px-6 py-2 whatsapp-gradient text-white rounded-lg font-semibold hover:shadow-lg transition">دخول</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-green-50 to-white py-20">
+        <div class="max-w-7xl mx-auto px-4 text-center rtl-text">
+            <h2 class="text-5xl font-bold text-gray-800 mb-6">منصة إدارة واتساب المتقدمة</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                أدر حسابات واتساب متعددة، أرسل رسائل جماعية مجدولة، وأضف ميزات ذكية بكل سهولة
+            </p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <button onclick="showLoginModal()" class="px-8 py-3 whatsapp-gradient text-white rounded-lg font-semibold text-lg hover:shadow-lg transition">
+                    <i class="fas fa-rocket ml-2"></i> ابدأ الآن
+                </button>
+                <button onclick="scrollToSection('pricing')" class="px-8 py-3 border-2 border-green-600 text-green-600 rounded-lg font-semibold text-lg hover:bg-green-50 transition">
+                    <i class="fas fa-tag ml-2"></i> عرض الباقات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-16">المميزات الرئيسية</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover:border-green-500 hover:shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-qrcode text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">ربط واتساب عبر QR</h4>
+                    <p class="text-gray-600">ربط عدد لا نهائي من حسابات واتساب باستخدام رموز QR الآمنة</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover: border-green-500 hover: shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">واجهة محادثة نظامية</h4>
+                    <p class="text-gray-600">رد على رسائل واتساب كما لو كنت تستخدم التطبيق الأصلي</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover:border-green-500 hover:shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-alt text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">رسائل جماعية مجدولة</h4>
+                    <p class="text-gray-600">أرسل رسائل لعدد كبير من الأشخاص في الأوقات المحددة</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover:border-green-500 hover:shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-button text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">أزرار وقوائم تفاعلية</h4>
+                    <p class="text-gray-600">أضف أزرار وقوائم ديناميكية مثل Smart WhatsApp</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover:border-green-500 hover:shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-check-double text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">تتبع الإرسالية</h4>
+                    <p class="text-gray-600">ضع إشارات على الأرقام التي تم إرسال الرسائل إليها</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover: border-green-500 hover: shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-contacts text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">إدارة جهات الاتصال</h4>
+                    <p class="text-gray-600">استورد جهات الاتصال من ملفات أو أضفها يدويا</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover: border-green-500 hover: shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-variables text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">متغيرات ديناميكية</h4>
+                    <p class="text-gray-600">استخدم متغيرات مثل الأسماء والتواريخ في الرسائل</p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover: border-green-500 hover: shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-image text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">إرسال الحالات</h4>
+                    <p class="text-gray-600">أرسل صور وفيديوهات والقدرة على جدولة الحالات</p>
+                </div>
+
+                <!-- Feature 9 -->
+                <div class="p-6 rounded-lg border-2 border-gray-200 hover: border-green-500 hover: shadow-lg transition">
+                    <div class="w-12 h-12 whatsapp-gradient rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">AI محادثات ذكية</h4>
+                    <p class="text-gray-600">أرقامك تحاور بعضها باستخدام الذكاء الاصطناعي بعدة لغات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-16">باقات الاشتراك</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Monthly Plan -->
+                <div class="bg-white rounded-lg shadow-lg p-8 border-2 border-gray-200 hover:border-green-500 transition">
+                    <div class="flex items-center gap-3 mb-6">
+                        <h4 class="text-2xl font-bold text-gray-800">الباقة الشهرية</h4>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">شهري</span>
+                    </div>
+                    <div class="text-4xl font-bold text-green-600 mb-2">$100</div>
+                    <p class="text-gray-600 mb-6">اشتراك شهري واحد</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">جميع المميزات بدون حد</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">عدد لا نهائي من الأرقام</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">رسائل جماعية مجدولة</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">دعم 24/7</span>
+                        </li>
+                    </ul>
+                    <button onclick="subscribeNow('monthly')" class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover: bg-blue-700 transition">
+                        الاشتراك الآن
+                    </button>
+                </div>
+
+                <!-- Yearly Plan -->
+                <div class="bg-white rounded-lg shadow-lg p-8 border-3 border-green-500 relative">
+                    <div class="absolute -top-4 right-6 px-4 py-2 bg-green-600 text-white rounded-full font-bold">
+                        الأفضل
+                    </div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <h4 class="text-2xl font-bold text-gray-800">الباقة السنوية</h4>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">سنوي</span>
+                    </div>
+                    <div class="text-4xl font-bold text-green-600 mb-2">$1,000</div>
+                    <p class="text-gray-600 mb-1">اشتراك سنوي واحد</p>
+                    <p class="text-sm text-gray-500 mb-6">توفر 17% مقابل الاشتراك الشهري</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">جميع المميزات بدون حد</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">عدد لا نهائي من الأرقام</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">رسائل جماعية مجدولة</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-600"></i>
+                            <span class="text-gray-700">دعم أولوي 24/7</span>
+                        </li>
+                    </ul>
+                    <button onclick="subscribeNow('yearly')" class="w-full px-6 py-3 whatsapp-gradient text-white rounded-lg font-semibold hover:shadow-lg transition">
+                        الاشتراك الآن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold text-gray-800 mb-8">تواصل معنا</h3>
+            <p class="text-xl text-gray-600 mb-8">هل لديك أسئلة؟ تواصل معنا عبر واتساب</p>
+            <a href="https://wa.me/966500000000" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 whatsapp-gradient text-white rounded-lg font-semibold text-lg hover:shadow-lg transition">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                تواصل عبر واتساب
+            </a>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 w-full max-w-md">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">تسجيل الدخول</h3>
+                <button onclick="closeLoginModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">البريد الإلكتروني</label>
+                    <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600" placeholder="example@email.com">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">كلمة المرور</label>
+                    <input type="password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full px-6 py-3 whatsapp-gradient text-white rounded-lg font-semibold hover:shadow-lg transition">
+                    دخول
+                </button>
+            </form>
+            <p class="text-center text-gray-600 mt-4">
+                ليس لديك حساب؟ <a href="#" class="text-green-600 font-semibold hover:underline">إنشاء حساب جديد</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 WhatsApp Sender Pro.  جميع الحقوق محفوظة. </p>
+        </div>
+    </footer>
+
+    <script>
+        function showLoginModal() {
+            document. getElementById('loginModal').classList.remove('hidden');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            // TODO:  Implement login logic
+            alert('يتم معالجة بيانات الدخول.. .');
+            closeLoginModal();
+        }
+
+        function subscribeNow(plan) {
+            alert(`اختيار الباقة: ${plan === 'monthly' ? 'الشهرية' : 'السنوية'}`);
+            // TODO: Redirect to payment page
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
