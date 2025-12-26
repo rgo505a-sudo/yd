@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمتك أولويتي - بوابة الخدمات الحكومية والإلكترونية</title>
+    <meta name="description" content="بوابة إلكترونية متكاملة لتقديم خدمات الجوازات، مكتب العمل، وزارة التجارة، الخدمات الطبية، والعقود والتصديقات في المملكة العربية السعودية.">
+    
+    <!-- ربط خطوط جوجل (Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ربط Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* أساسيات التنسيق */
+        :root {
+            /* الألوان الأساسية (ثيم خليجي) */
+            --primary-green: #00897b; /* أخضر زمردي */
+            --primary-blue: #1a237e;  /* أزرق داكن */
+            --light-blue: #e3f2fd;    /* أزرق فاتح للخلفيات */
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-color: #333333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            direction: rtl;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* زر الواتساب العائم (Floating) */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25D366; /* لون واتساب رسمي */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* الهيدر الرئيسي (Hero Section) */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 40px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center bottom;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .logo .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            color: #ffeb3b; /* لون مميز */
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* الأزرار العامة */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn-hero {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            margin-left: 15px;
+        }
+
+        .btn-hero:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-3px);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        /* عناوين الأقسام */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin: 50px 0 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-green);
+            border-radius: 2px;
+        }
+
+        .section-desc {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        /* أقسام الخدمات */
+        .service-category {
+            margin-bottom: 50px;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-blue);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* بطاقات الخدمات (Service Cards) */
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary-green);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .service-btn {
+            background-color: var(--primary-green);
+            color: white;
+            align-self: flex-start;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .service-btn:hover {
+            background-color: var(--primary-blue);
+        }
+
+        /* الفوتر */
+        .site-footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-info, .footer-contact {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact a {
+            color: #90caf9;
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* تأثيرات الظهور */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تصميم متجاوب (Responsive) */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 30px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 1.7rem;
+            }
+            
+            .hero-desc {
+                font-size: 1rem;
+            }
+            
+            .service-category {
+                padding: 20px 15px;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                margin-left: 0;
+            }
+            
+            .btn-hero {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- زر الواتساب العائم (Floating) -->
+    <a href="https://wa.me/966590017101?text=مرحبًا،%20أود%20الاستفسار%20عن%20خدماتكم" 
+       class="floating-whatsapp" 
+       target="_blank" 
+       aria-label="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- الهيدر الرئيسي (Hero Section) -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="logo">
+                <!-- شعار الموقع (يجب استبدال النص بصورة) -->
+                <h1><i class="fas fa-hands-helping"></i> خدمتك أولويتي</h1>
+                <p class="tagline">بوابتك الإلكترونية للحصول على الخدمات الحكومية بسهولة وسرعة</p>
+            </div>
+            <div class="hero-content">
+                <h2 class="hero-title">خدمات حكومية إلكترونية <span>بضغطة زر</span></h2>
+                <p class="hero-desc">نوفر لك مجموعة واسعة من الخدمات الإلكترونية المعتمدة في المملكة العربية السعودية. اختر الخدمة التي تحتاجها واتصل بنا مباشرة عبر واتساب للحصول على استشارة مجانية.</p>
+                <a href="#services" class="btn btn-hero">استعرض الخدمات</a>
+                <a href="https://wa.me/966590017101?text=مرحبًا،%20أود%20الاستفسار%20عن%20خدماتكم%20بشكل%20عام" 
+                   class="btn btn-whatsapp" 
+                   target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل معنا عبر واتساب
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الخدمات الرئيسي -->
+    <main class="container">
+        <section id="services" class="services-section">
+            <h2 class="section-title"><i class="fas fa-list-alt"></i> أقسام الخدمات</h2>
+            <p class="section-desc">اختر من بين خدماتنا المصنفة بدقة لتلبية احتياجاتك</p>
+
+            <!-- قسم الجوازات -->
+            <div class="service-category">
+                <h3 class="category-title"><i class="fas fa-passport"></i> قسم الجوازات</h3>
+                <div class="services-grid" id="passports-grid">
+                    <!-- سيتم ملء هذه البطاقات عبر JavaScript -->
+                </div>
+            </div>
+
+            <!-- قسم مكتب العمل -->
+            <div class="service-category">
+                <h3 class="category-title"><i class="fas fa-briefcase"></i> قسم مكتب العمل</h3>
+                <div class="services-grid" id="labor-grid">
+                    <!-- سيتم ملء هذه البطاقات عبر JavaScript -->
+                </div>
+            </div>
+
+            <!-- قسم وزارة التجارة -->
+            <div class="service-category">
+                <h3 class="category-title"><i class="fas fa-landmark"></i> قسم وزارة التجارة</h3>
+                <div class="services-grid" id="commerce-grid">
+                    <!-- سيتم ملء هذه البطاقات عبر JavaScript -->
+                </div>
+            </div>
+
+            <!-- قسم الخدمات الطبية -->
+            <div class="service-category">
+                <h3 class="category-title"><i class="fas fa-stethoscope"></i> قسم الخدمات الطبية</h3>
+                <div class="services-grid" id="medical-grid">
+                    <!-- سيتم ملء هذه البطاقات عبر JavaScript -->
+                </div>
+            </div>
+
+            <!-- قسم العقود والتصديقات -->
+            <div class="service-category">
+                <h3 class="category-title"><i class="fas fa-file-contract"></i> قسم العقود والتصديقات</h3>
+                <div class="services-grid" id="contracts-grid">
+                    <!-- سيتم ملء هذه البطاقات عبر JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر (التذييل) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3><i class="fas fa-hands-helping"></i> خدمتك أولويتي</h3>
+                    <p>نحن هنا لمساعدتك في إتمام معاملاتك الحكومية بكل سهولة ويسر.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <p><i class="fab fa-whatsapp"></i> واتساب فقط: <a href="tel:+966590017101">+966 59 001 7101</a></p>
+                    <p>يرجى التواصل خلال أوقات العمل الرسمية</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© <span id="currentYear"></span> خدمتك أولويتي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات الخدمات (يمكن نقلها لقاعدة بيانات أو ملف JSON في المستقبل)
+        const servicesData = {
+            passports: [
+                {
+                    name: "نقل معلومات الجواز",
+                    description: "نحدث بيانات الجواز من الجوازات مباشرة – بدون عناء أو معاملات ورقية معقدة."
+                },
+                {
+                    name: "تمديد صلاحية الجواز",
+                    description: "نقوم بتمديد صلاحية جواز سفرك وفق الأنظمة المعمول بها."
+                },
+                {
+                    name: "فصل تابع من الإقامة",
+                    description: "خدمة فصل التابع من إقامة الكفيل بخطوات إلكترونية سريعة."
+                },
+                {
+                    name: "تجديد إقامات التابعين",
+                    description: "نوفر تجديد إقامات أفراد الأسرة (التابعين) بكل سهولة."
+                },
+                {
+                    name: "تجديد إقامات كفيل طفل",
+                    description: "تجديد إقامة الطفل تحت كفالة أحد الوالدين وفق اللوائح النظامية."
+                },
+                {
+                    name: "تجديد إقامات كفيل متوفي",
+                    description: "معالجة تجديد إقامة التابعين في حالة وفاة الكفيل الأصلي."
+                },
+                {
+                    name: "إلغاء هروب فردي",
+                    description: "إلغاء حالة الهروب النظامية للعامل وإعادته إلى وضع قانوني."
+                },
+                {
+                    name: "نقل كفالة فردي لفردي",
+                    description: "نقل كفالة العامل من فرد إلى آخر بمعاملة إلكترونية سلسة."
+                },
+                {
+                    name: "إصدار تأشيرات خروج وعودة ونهائي",
+                    description: "إصدار كافة أنواع تأشيرات الخروج بمواعيدها المختلفة."
+                },
+                {
+                    name: "إلغاء خروج نهائي",
+                    description: "إلغاء تأشيرة الخروج النهائي والعودة إلى الوضع القانوني."
+                },
+                {
+                    name: "إصدار إقامة مؤقتة",
+                    description: "الحصول على إقامة مؤقتة سارية المفعول للنزلاء والزوار."
+                },
+                {
+                    name: "طباعة إقامة",
+                    description: "طباعة وثيقة الإقامة الرسمية من منصة أبشر أو بوابة مقيم."
+                },
+                {
+                    name: "إرجاع عامل مسقط من النظام",
+                    description: "إعادة عامل مسقط من النظام إلى وضعه القانوني."
+                }
+            ],
+            labor: [
+                {
+                    name: "نقل عمال مهنيين بدون قوى",
+                    description: "نقل العمالة المهنية بين المنشآت دون المرور عبر منصة قوى."
+                },
+                {
+                    name: "تعديل مهن مسعودة إلى مهن عادية",
+                    description: "تحويل المهن المسعودة (ذات الأولوية) إلى مهن عادية."
+                },
+                {
+                    name: "تعديل رسوم العمالة المنزلية ل750 ريال",
+                    description: "تعديل رسوم العمالة المنزلية لتتناسب مع التعرفة الجديدة (750 ريال)."
+                },
+                {
+                    name: "فك نسبة الجنسيات للنقل وإصدار التأشيرات",
+                    description: "فك القيود المفروضة على نسب الجنسيات لنقل العمالة وإصدار التأشيرات."
+                },
+                {
+                    name: "إصدار تأشيرات مساند",
+                    description: "إصدار تأشيرات المساند لأفراد الأسرة المساعدين."
+                },
+                {
+                    name: "إصدار رخص عمل بدون قوى",
+                    description: "استخراج رخص عمل للعاملين دون الحاجة لاستخدام منصة قوى."
+                },
+                {
+                    name: "فك الجودة وإزالة الحظر عن مساند",
+                    description: "رفع مستوى الجودة وإزالة الحظر عن تأشيرات المساند."
+                },
+                {
+                    name: "إزالة ملاحظة حماية الأجور",
+                    description: "معالجة وإزالة ملاحظة 'حماية الأجور' من ملف المنشأة."
+                }
+            ],
+            commerce: [
+                {
+                    name: "فتح سجل تجاري لمؤسسة فردية",
+                    description: "إجراءات فتح سجل تجاري للمؤسسات الفردية بسرعة واحترافية."
+                },
+                {
+                    name: "شطب سجل تجاري لمؤسسة فردية",
+                    description: "شطب السجل التجاري للمؤسسة الفردية وفق الإجراءات النظامية."
+                },
+                {
+                    name: "فتح اشتراك غرفة تجارية",
+                    description: "تفعيل الاشتراك في الغرفة التجارية للمنشآت المسجلة."
+                }
+            ],
+            medical: [
+                {
+                    name: "إصدار كشف طبي لإصدار الإقامة",
+                    description: "استخراج الكشف الطبي اللازم لإصدار أو تجديد الإقامة."
+                },
+                {
+                    name: "إصدار كشف طبي لتجديد رخصة القيادة",
+                    description: "الحصول على الكشف الطبي المطلوب لتجديد رخصة القيادة."
+                },
+                {
+                    name: "إصدار شهادات صحية",
+                    description: "إصدار مختلف الشهادات الصحية الرسمية المطلوبة للمعاملات."
+                }
+            ],
+            contracts: [
+                {
+                    name: "تصديق عقود من الغرفة التجارية",
+                    description: "تصديق العقود والوثائق من الغرفة التجارية المحلية."
+                },
+                {
+                    name: "تصديق عقود من الخارجية",
+                    description: "تصديق العقود من وزارة الخارجية السعودية."
+                },
+                {
+                    name: "تفويض وتصديق التأشيرات",
+                    description: "خدمات التفويض والتصديق لكافة أنواع التأشيرات."
+                },
+                {
+                    name: "إصدار عقد إيجار",
+                    description: "صياغة وإصدار عقود الإيجار الموثقة رسمياً."
+                },
+                {
+                    name: "إصدار عقد سلامة",
+                    description: "إعداد عقد السلامة المهنية للمنشآت والموظفين."
+                },
+                {
+                    name: "إصدار عقد صيانة",
+                    description: "صياغة عقود الصيانة الشاملة للمباني والمعدات."
+                },
+                {
+                    name: "تصديق تأشيرة الزيارة العائلية",
+                    description: "تصديق تأشيرات الزيارة العائلية من الجهات المختصة."
+                }
+            ]
+        };
+
+        // الدالة لإنشاء بطاقة خدمة
+        function createServiceCard(service, categoryIndex) {
+            const categoryNames = ["الجوازات", "مكتب العمل", "وزارة التجارة", "الخدمات الطبية", "العقود والتصديقات"];
+            const categoryName = categoryNames[categoryIndex] || "عام";
+            
+            // نص رسالة واتساب مخصصة
+            const whatsappMessage = `مرحبًا، أرغب بخدمة ${service.name} - قسم ${categoryName}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappLink = `https://wa.me/966590017101?text=${encodedMessage}`;
+            
+            return `
+                <div class="service-card">
+                    <h4>${service.name}</h4>
+                    <p>${service.description}</p>
+                    <a href="${whatsappLink}" class="btn service-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> اطلب الخدمة
+                    </a>
+                </div>
+            `;
+        }
+
+        // الدالة لعرض الخدمات
+        function displayServices() {
+            // قسم الجوازات
+            const passportsGrid = document.getElementById('passports-grid');
+            if (passportsGrid) {
+                servicesData.passports.forEach(service => {
+                    passportsGrid.innerHTML += createServiceCard(service, 0);
+                });
+            }
+            
+            // قسم مكتب العمل
+            const laborGrid = document.getElementById('labor-grid');
+            if (laborGrid) {
+                servicesData.labor.forEach(service => {
+                    laborGrid.innerHTML += createServiceCard(service, 1);
+                });
+            }
+            
+            // قسم وزارة التجارة
+            const commerceGrid = document.getElementById('commerce-grid');
+            if (commerceGrid) {
+                servicesData.commerce.forEach(service => {
+                    commerceGrid.innerHTML += createServiceCard(service, 2);
+                });
+            }
+            
+            // قسم الخدمات الطبية
+            const medicalGrid = document.getElementById('medical-grid');
+            if (medicalGrid) {
+                servicesData.medical.forEach(service => {
+                    medicalGrid.innerHTML += createServiceCard(service, 3);
+                });
+            }
+            
+            // قسم العقود والتصديقات
+            const contractsGrid = document.getElementById('contracts-grid');
+            if (contractsGrid) {
+                servicesData.contracts.forEach(service => {
+                    contractsGrid.innerHTML += createServiceCard(service, 4);
+                });
+            }
+        }
+
+        // دالة لإعداد السنة الحالية في الفوتر
+        function setupCurrentYear() {
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        }
+
+        // تهيئة الموقع عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            displayServices();
+            setupCurrentYear();
+            
+            // إضافة تأثير ظهور تدريجي للبطاقات
+            setTimeout(() => {
+                const serviceCards = document.querySelectorAll('.service-card');
+                serviceCards.forEach((card, index) => {
+                    card.style.animation = `fadeIn 0.5s ease-out ${index * 0.05}s both`;
+                });
+            }, 100);
+            
+            // تتبع النقر على أزرار الواتساب (لأغراض التحليل في المستقبل)
+            const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
+            whatsappButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceName = this.closest('.service-card') ? 
+                        this.closest('.service-card').querySelector('h4').textContent : 'عام';
+                    console.log(`طلب خدمة عبر واتساب: ${serviceName}`);
+                    // يمكن إضافة كود Google Analytics هنا لاحقًا
+                    
+                    // تحسين تجربة المستخدم: تأخير الانتقال قليلاً لضمان تسجيل الحدث
+                    setTimeout(() => {
+                        window.open(this.href, '_blank');
+                    }, 300);
+                });
+            });
+        });
+
+        // تحسين SEO الديناميكي (لإضافة بيانات هيكلية)
+        function addStructuredData() {
+            const structuredData = {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "خدمتك أولويتي",
+                "description": "بوابة إلكترونية متكاملة لتقديم الخدمات الحكومية والإلكترونية في المملكة العربية السعودية",
+                "url": window.location.href,
+                "telephone": "+966590017101",
+                "areaServed": "SA",
+                "availableLanguage": "Arabic",
+                "serviceType": [
+                    "خدمات الجوازات",
+                    "خدمات مكتب العمل",
+                    "خدمات وزارة التجارة",
+                    "خدمات طبية",
+                    "خدمات العقود والتصديقات"
+                ]
+            };
+            
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.textContent = JSON.stringify(structuredData);
+            document.head.appendChild(script);
+        }
+
+        // استدعاء دالة بيانات Schema
+        addStructuredData();
+    </script>
+</body>
+</html>
